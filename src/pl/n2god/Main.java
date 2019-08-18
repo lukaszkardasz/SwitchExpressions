@@ -5,10 +5,12 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-	Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Podaj rozmiary S,M,L lub XL");
         String shortSize = scanner.nextLine();
-        String size;
+
+
+        /*String size;
 
         switch (shortSize){
             case "S":
@@ -25,7 +27,18 @@ public class Main {
                 break;
             default:
                 throw new IllegalArgumentException("Nieznany rozmiar");
-        }
+        }*/
+
+        String size = switch (shortSize) {
+            case "S" -> {
+                System.out.println("Przypisuję mały rozmiar");
+                break "mały";
+            }
+            case "M" -> "średni";
+            case "L" -> "duży";
+            case "XL","XXL" -> "mega";
+            default -> throw new IllegalArgumentException("Nieznany rozmiar");
+        };
 
         System.out.println("Wybrano rozmiar: " + size);
     }
